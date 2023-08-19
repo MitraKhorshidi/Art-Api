@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={roboto.className}>
+      <body className={roboto.className} style={{padding:'16px'}}>
         <NavBar/>
         {children}
         <Footer/>

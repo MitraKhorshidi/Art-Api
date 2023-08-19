@@ -18,7 +18,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex min-h-screen flex-col items-centr text-white">
+    <main className="flex flex-col items-centr text-white">
       <CollectionList list={artCraftsList} title={"All artworks"} />
       <Pagination />
     </main>

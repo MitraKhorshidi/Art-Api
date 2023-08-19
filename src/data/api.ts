@@ -7,6 +7,11 @@ export async function getArtcraftList(pageNumber:number):Promise<ArtObject[]> {
 }
 
 export async function getArtcraftsDetail(objectNumber:string): Promise<ArtObjectDetails> {
-    return SAMPLE_SINGLE.artObject;
+
+    const response = await fetch(`https://www.rijksmuseum.nl/api/en/collection/${objectNumber}?key=2esrTh6M`);
+    const result = await response.json();
+    const artcraftsDetails = result.artObject;
+    console.log('result fetch', artcraftsDetails);
+    return artcraftsDetails;
     
 }

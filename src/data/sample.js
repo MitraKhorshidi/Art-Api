@@ -1,4 +1,4 @@
- export const SAMPLE ={
+ export const SAMPLE_LIST ={
     "elapsedMilliseconds": 0,
     "count": 779497,
     "countFacets": {

@@ -1,13 +1,20 @@
-import Link from "next/link"
+import Link from "next/link";
 
-const CollectionCard = () => {
+const CollectionCard = ({
+  objectNumber,
+  title,
+  principalOrFirstMaker,
+}: {
+  objectNumber: string;
+  title: string;
+  principalOrFirstMaker: string;
+}) => {
   return (
-    <Link href='/'>
-      <img/>
-      <p>artist</p>
-      <h3>art title</h3>
+    <Link href={`/single/${objectNumber}`} className="flex flex-col w-40 p-5 bg-white rounded-md text-black">
+      <p>{principalOrFirstMaker}</p>
+      <h3>{title}</h3>
     </Link>
-  )
-}
+  );
+};
 
-export default CollectionCard
+export default CollectionCard;

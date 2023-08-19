@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html ,body{
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-image: linear-gradient(#23293E 100% ,#1D1D1D 100%);
+  padding: 16px;
+  gap: 32px;
+}
+

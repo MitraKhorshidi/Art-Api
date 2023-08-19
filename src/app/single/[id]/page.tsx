@@ -1,7 +1,12 @@
+import Link from "next/link"
+import { Detail } from "./Detail"
 
 const Single = () => {
   return (
-    <div>Single</div>
+    <div>
+      <Link href='/'>Back to the List</Link>
+      <Detail/>
+    </div>
   )
 }
 

@@ -1,17 +1,26 @@
-import { ArtObject , ArtObjectDetails } from "./types";
-import {SAMPLE_LIST} from "@/data/sampleList";
-import {SAMPLE_SINGLE} from "@/data/sampleSingle";
+import { ArtObject, ArtObjectDetails } from "./types";
 
-export async function getArtcraftList(pageNumber:number):Promise<ArtObject[]> {
-    return SAMPLE_LIST.artObjects;
+const API_KEY = '2esrTh6M' /*process.env.API_KEY */; // TODO: Secure Me
+
+export async function getArtcraftsList(pageNumber: number): Promise<ArtObject[]> {
+    const link = `https://www.rijksmuseum.nl/api/en/collection?key=${API_KEY}&p=${pageNumber}&ps=9`;
+
+    const response = await fetch(link);
+    const result = await response.json();
+    const artcraftslist = result.artObjects;
+
+    console.log('fetch result', result);
+
+    return artcraftslist;
 }
 
-export async function getArtcraftsDetail(objectNumber:string): Promise<ArtObjectDetails> {
+export async function getArtcraftsDetail(objectNumber: string): Promise<ArtObjectDetails> {
+    const link = `https://www.rijksmuseum.nl/api/en/collection/${objectNumber}?key=${API_KEY}`;
 
-    const response = await fetch(`https://www.rijksmuseum.nl/api/en/collection/${objectNumber}?key=2esrTh6M`);
+    const response = await fetch(link);
     const result = await response.json();
     const artcraftsDetails = result.artObject;
-    console.log('result fetch', artcraftsDetails);
+
     return artcraftsDetails;
-    
+
 }

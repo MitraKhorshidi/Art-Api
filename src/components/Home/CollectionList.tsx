@@ -1,4 +1,4 @@
-import { ArtObject } from "@/data/ArtObject";
+import { ArtObject } from "@/data/types";
 import CollectionCard from "./CollectionCard";
 
 const CollectionList = ({

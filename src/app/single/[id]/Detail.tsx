@@ -48,7 +48,7 @@ export const Detail = ({ details }: { details: ArtObjectDetails }) => {
             <p>Measurments</p>
             <h3>
               {dimensions.map((obj) => (
-                <span>
+                <span key={obj.type}>
                   {" "}
                   {obj.type} {obj.value} {obj.unit}
                 </span>

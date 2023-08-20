@@ -1,6 +1,6 @@
 import { FilterProps } from "@/data/types";
 import Link from "next/link";
-import { generateLink } from "@/app/page";
+import { generateLink } from "@/utils/links";
 
 const PaginationButton = ({
   searchParams,

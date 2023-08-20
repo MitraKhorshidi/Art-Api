@@ -13,7 +13,7 @@ const CollectionCard = ({
   webImage : ArtImage,
 }) => {
   return (
-    <Link href={`/single/${objectNumber}`} className="bg-cover flex flex-col aspect-[450/364] w-full p-5 bg-white rounded-md text-black" style={{backgroundImage:`url(${webImage.url})`}}>
+    <Link href={`/single/${objectNumber}`} className="bg-cover flex flex-col aspect-[450/364] w-full p-5 bg-white rounded-md text-black" style={{backgroundImage:`url(${webImage?.url})`}}>
       <p>{principalOrFirstMaker}</p>
       <h3>{title}</h3>
     </Link>

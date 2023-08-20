@@ -1,22 +1,24 @@
+import { FilterProps } from "@/data/types";
 import PaginationButton from "./PaginationButton";
 
 const Pagination = ({
   lastPage,
-  currentPage,
-  onSelect,
+  searchParams,
 }: {
   lastPage: number;
-  currentPage: number;
-  onSelect: (pageNumber:number)=>void;
+  searchParams: FilterProps;
 }) => {
+
+  const currentPage = searchParams.page || 1;
   if (currentPage === 1) {
     return (
       <div className="flex flex-row justify-end gap-3 my-5">
-        <PaginationButton content={"<"}/>
-        <PaginationButton content={currentPage} isActive={true} />
-        <PaginationButton content={"..."}  />
-        <PaginationButton content={lastPage} onClick={()=>onSelect(lastPage)}/>
-        <PaginationButton content={">"} onClick={()=>onSelect(currentPage+1)} />
+        <PaginationButton  content={"<"} />
+        <PaginationButton  content={currentPage} isActive={true} />
+        <PaginationButton searchParams={{...searchParams,page:2}} content={2} />
+        <PaginationButton  content={"..."}  />
+        <PaginationButton searchParams={{...searchParams,page:lastPage}} content={lastPage} />
+        <PaginationButton searchParams={{...searchParams,page:currentPage+1}} content={">"}  />
       </div>
     );
   } 
@@ -24,24 +26,24 @@ const Pagination = ({
   if (currentPage === lastPage) {
     return (
       <div className="flex flex-row justify-end gap-3 ">
-        <PaginationButton content={"<"} onClick={()=>onSelect(currentPage-1)} />
-        <PaginationButton content={1} onClick={()=>onSelect(1)} />
+        <PaginationButton searchParams={{...searchParams,page:currentPage-1}} content={"<"} />
+        <PaginationButton searchParams={{...searchParams,page:1}} content={1}  />
         <PaginationButton content={"..."} />
-        <PaginationButton content={currentPage}  />
-        <PaginationButton content={">"}/>
+        <PaginationButton  content={currentPage}  />
+        <PaginationButton  content={">"}/>
       </div>
     );
   }
 
   return(
     <div className="flex flex-row justify-end gap-3 ">
-        <PaginationButton content={"<"} onClick={()=>onSelect(currentPage-1)} />
-        <PaginationButton content={1} onClick={()=>onSelect(1)} />
-        <PaginationButton content={"..."}  />
+        <PaginationButton searchParams={{...searchParams,page:currentPage-1}} content={"<"}  />
+        <PaginationButton searchParams={{...searchParams,page:1}} content={1} />
+        <PaginationButton  content={"..."}  />
         <PaginationButton content={currentPage} isActive={true} />
-        <PaginationButton content={"..."}  />
-        <PaginationButton content={lastPage} onClick={()=>onSelect(lastPage)} />
-        <PaginationButton content={">"} onClick={()=>onSelect(currentPage+1)} />
+        <PaginationButton  content={"..."}  />
+        <PaginationButton searchParams={{...searchParams,page:lastPage}} content={lastPage}  />
+        <PaginationButton searchParams={{...searchParams,page:currentPage+1}} content={">"}  />
       </div>
   );
 

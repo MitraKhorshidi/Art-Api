@@ -1,25 +1,24 @@
-import { ArtObject, ArtObjectDetails } from "./types";
+import { ArtObject, ArtObjectDetails, FilterProps } from "./types";
 
-const API_KEY = '2esrTh6M' /*process.env.API_KEY */; // TODO: Secure Me
+const API_KEY = process.env.API_KEY;
 
-export async function getArtcraftsList(pageNumber: number): Promise<{
-    objects:ArtObject[],
-    pageCount:number,
+export async function getArtcraftsList(searchParams: FilterProps): Promise<{
+    objects: ArtObject[],
+    pageCount: number,
 }> {
+    const pageNumber = searchParams.page || 1;
+    const query = searchParams.query || '';
+
     const countPerPage = 9;
-    const link = `https://www.rijksmuseum.nl/api/en/collection?key=${API_KEY}&p=${pageNumber}&ps=${countPerPage}`;
-    // const test = 'https://www.rijksmuseum.nl/api/nl/collection?key=2esrTh6M&q=painting'
+    const link = `https://www.rijksmuseum.nl/api/en/collection?key=${API_KEY}&p=${pageNumber}&ps=${countPerPage}&q=${query}`;
 
     const response = await fetch(link);
     const result = await response.json();
     const artcraftslist = result.artObjects;
     const count = result.count;
-    const pageCount = Math.floor(count/countPerPage);
-    console.log('count of all ',count);
+    const pageCount = Math.floor(count / countPerPage);
 
-    console.log('fetch result', result);
-
-    return {objects:artcraftslist , pageCount:pageCount};
+    return { objects: artcraftslist, pageCount: pageCount };
 }
 
 export async function getArtcraftsDetail(objectNumber: string): Promise<ArtObjectDetails> {

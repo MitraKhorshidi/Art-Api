@@ -32,3 +32,12 @@ export interface Dimention {
     type: string,
     value: string,
 }
+
+export interface FilterProps {
+    query: string,
+    page: number,
+}
+
+export interface HomeProps {
+    searchParams: FilterProps;
+}

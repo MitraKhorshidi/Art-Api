@@ -7,22 +7,29 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [artCraftsList, setArtCraftsList] = useState([] as ArtObject[]);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [lastPage, setLastPage] = useState(0);
 
   async function loadData() {
-    const list = await getArtcraftsList(1);
-    setArtCraftsList(list);
+    const result = await getArtcraftsList(pageNumber);
+    setArtCraftsList(result.objects);
+    setLastPage(result.pageCount);
   }
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [pageNumber]);
 
   return (
     <main className="flex flex-col items-centr text-white">
       {artCraftsList && (
         <CollectionList list={artCraftsList} title={"All artworks"} />
       )}
-      <Pagination />
+      <Pagination
+        currentPage={pageNumber}
+        onSelect={setPageNumber}
+        lastPage={lastPage}
+      />
     </main>
   );
 }

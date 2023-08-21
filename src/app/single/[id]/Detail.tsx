@@ -26,21 +26,27 @@ export const Detail = ({ details }: { details: ArtObjectDetails }) => {
         {longTitle && (
           <div className="gap-1 pt-2 pb-4 text-secondary border-b-[1px] border-b-secondary">
             <p className="text-base leading-6">Title</p>
-            <h3 className="text-lg sm:text-[24px] text-primary leading-8 ">{longTitle}</h3>
+            <h3 className="text-lg sm:text-[24px] text-primary leading-8 ">
+              {longTitle}
+            </h3>
           </div>
         )}
 
         {principalMaker && (
           <div className="gap-1 pt-2 pb-4 text-secondary border-b-[1px] border-b-secondary">
             <p className="text-base leading-6">Artist</p>
-            <h3 className="text-lg sm:text-[24px] text-primary leading-8 ">{principalMaker}</h3>
+            <h3 className="text-lg sm:text-[24px] text-primary leading-8 ">
+              {principalMaker}
+            </h3>
           </div>
         )}
 
         {objectTypes && (
           <div className="gap-1 pt-2 pb-4 text-secondary border-b-[1px] border-b-secondary">
             <p className="text-base leading-6">Object Type</p>
-            <h3 className="text-lg sm:text-[24px] text-primary leading-8 ">{objectTypes}</h3>
+            <h3 className="text-lg sm:text-[24px] text-primary leading-8 ">
+              {objectTypes}
+            </h3>
           </div>
         )}
 
@@ -48,9 +54,9 @@ export const Detail = ({ details }: { details: ArtObjectDetails }) => {
           <div className="gap-1 pt-2 pb-4 text-secondary border-b-[1px] border-b-secondary">
             <p className="text-base leading-6">Measurments</p>
             <h3 className="text-lg sm:text-[24px] text-primary leading-8 ">
-              {dimensions.map((obj) => (
+              {dimensions.map((obj, i) => (
                 <span key={obj.type}>
-                  {" "}
+                  {i == 0 ? " " : " × "}
                   {obj.type} {obj.value} {obj.unit}
                 </span>
               ))}
@@ -61,7 +67,9 @@ export const Detail = ({ details }: { details: ArtObjectDetails }) => {
         {description && (
           <div className="gap-1 pt-2 pb-4 text-secondary border-b-[1px] border-b-secondary">
             <p className="text-base leading-6">Description</p>
-            <h3 className="text-lg sm:text-[24px] text-primary leading-8 ">{description}</h3>
+            <h3 className="text-lg sm:text-[24px] text-primary leading-8 ">
+              {description}
+            </h3>
           </div>
         )}
       </div>

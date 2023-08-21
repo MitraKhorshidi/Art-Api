@@ -30,7 +30,7 @@ export default async function Home({ searchParams }: HomeProps) {
             )}
           </h1>
 
-        <CollectionList  list={artCraftsList} />
+        <CollectionList list={artCraftsList} />
 
         <Pagination searchParams={searchParams} lastPage={lastPage} />
       </main>

@@ -16,11 +16,17 @@ const CollectionCard = ({
     <Link
       href={`/single/${objectNumber}`}
       className="relative bg-cover flex w-full aspect-[450/364] rounded-[8px] shadow-[0px_16px_16px_4px_rgba(0, 0, 0, 0.01)]"
-      style={{ backgroundImage: `linear-gradient(to bottom,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.72)),url(${webImage?.url})` }}
+      style={{
+        backgroundImage: `linear-gradient(to bottom,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.72)),url(${webImage?.url})`,
+      }}
     >
-      <p className="absolute top-0 right-0 bg-[#1D1D1D80] rounded-tr-lg rounded-bl-lg py-1 px-2 gap-[10px] text-[#0FEFFD] leading-4 text-sm">{principalOrFirstMaker}</p>
-      <div className="absolute flex top-[40%] left-[7%] w-full aspect-[346/132]">
-      <h3 className="self-end text-[32px] leading-[40px] w-2/3 text-secondary">{title}</h3>
+      <p className="absolute top-0 right-0 bg-[#1D1D1D80] rounded-tr-lg rounded-bl-lg py-1 px-2 gap-[10px] text-[#0FEFFD] leading-4 text-sm">
+        {principalOrFirstMaker}
+      </p>
+      <div className="absolute top-[55.5%] left-[7%] aspect-[346/132] w-2/3 flex">
+        <h3 className="self-end text-[32px] leading-[40px] text-secondary">
+          {title}
+        </h3>
       </div>
     </Link>
   );

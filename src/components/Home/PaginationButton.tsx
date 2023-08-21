@@ -8,7 +8,7 @@ const PaginationButton = ({
   isActive,
 }: {
   searchParams?: FilterProps;
-  content: string | number;
+  content: string | number 
   isActive?: boolean;
 }) => {
   const classes = !isActive

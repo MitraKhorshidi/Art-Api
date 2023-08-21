@@ -1,5 +1,6 @@
 import { FilterProps } from "@/data/types";
 import PaginationButton from "./PaginationButton";
+import { FaChevronRight,FaChevronLeft } from "react-icons/fa";
 
 const Pagination = ({
   lastPage,
@@ -13,7 +14,7 @@ const Pagination = ({
   if (currentPage === 1) {
     return (
       <div className="flex flex-row justify-end aspect-[1408/76] p-[10px] gap-4">
-        <PaginationButton  content={"<"} />
+        <PaginationButton  content={'<'} />
         <PaginationButton  content={currentPage} isActive={true} />
         <PaginationButton searchParams={{...searchParams,page:2}} content={2} />
         <PaginationButton  content={"..."}  />

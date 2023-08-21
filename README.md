@@ -7,7 +7,25 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Clone the project:
+you can clone the project if you do not have the source code already
+
+```bash
+git clone https://github.com/MitraKhorshidi/Art-Api.git art-api
+cd art-api
+```
+
+Download dependencies:
+
+```bash
+npm i
+# or
+yarn 
+# or
+pnpm i
+```
+
+Run the development server:
 
 ```bash
 npm run dev

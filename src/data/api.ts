@@ -5,6 +5,7 @@ const API_KEY = process.env.API_KEY;
 export async function getArtcraftsList(searchParams: FilterProps): Promise<{
     objects: ArtObject[],
     pageCount: number,
+    totlaCount: number,
 }> {
     const pageNumber = searchParams.page || 1;
     const query = searchParams.query || '';
@@ -18,7 +19,7 @@ export async function getArtcraftsList(searchParams: FilterProps): Promise<{
     const count = result.count;
     const pageCount = Math.floor(count / countPerPage);
 
-    return { objects: artcraftslist, pageCount: pageCount };
+    return { objects: artcraftslist, pageCount: pageCount, totlaCount: count };
 }
 
 export async function getArtcraftsDetail(objectNumber: string): Promise<ArtObjectDetails> {

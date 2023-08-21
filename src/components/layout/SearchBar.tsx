@@ -18,14 +18,14 @@ const SearchBar = ({ searchParams }: { searchParams?: FilterProps }) => {
   return (
     <form
       onSubmit={searchHandler}
-      className="w-full sm:w-[626px] flex flex-col sm:flex-row items-center gap-4 "
+      className="w-full flex flex-col items-end md:flex-row md:items-center gap-4 "
     >
       <div className="w-full border border-1 border-[#FFFFFF26] rounded-[80px]  ">
         <input
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
           placeholder="Please type in your search"
-          className="w-full bg-[#1F1F1F66] text-[24px] leading-8 text-[#FFFFFF] placeholder-opacity-20 px-1 py-1 overflow-hidden"
+          className="w-full bg-[#1F1F1F66] text-[24px] leading-8 text-[#FFFFFF] placeholder-opacity-20 px-8 py-4 lg:px-6 lg:py-2 overflow-hidden"
         />
       </div>
 

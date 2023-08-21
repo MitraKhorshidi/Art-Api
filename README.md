@@ -3,11 +3,10 @@
 ArtAPI is a museum that wants to launch an online catalogue
 of their collection.
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-Clone the project:
+### Clone the project:
 you can clone the project if you do not have the source code already
 
 ```bash
@@ -15,7 +14,13 @@ git clone https://github.com/MitraKhorshidi/Art-Api.git art-api
 cd art-api
 ```
 
-Download dependencies:
+### Make `.env` file
+create `.env` file at root with
+```
+API_KEY = <YOUR API KEY>
+```
+
+### Download dependencies:
 
 ```bash
 npm i
@@ -25,7 +30,7 @@ yarn
 pnpm i
 ```
 
-Run the development server:
+### Run the development server:
 
 ```bash
 npm run dev
@@ -37,5 +42,8 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+note: If port 3000 is unavailable ; it will use a different one.
+
+note: First time visit , may take a little longer to render , Duo to first time compiling.
 
 

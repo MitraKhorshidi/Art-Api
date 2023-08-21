@@ -14,6 +14,7 @@ const SearchBar = ({ searchParams }: { searchParams?: FilterProps }) => {
     const link = generateLink({ page: 1, query: searchInput });
     router.push(link);
   }
+
   return (
     <form
       onSubmit={searchHandler}
@@ -24,7 +25,7 @@ const SearchBar = ({ searchParams }: { searchParams?: FilterProps }) => {
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
           placeholder="Please type in your search"
-          className="w-full bg-[#1F1F1F66] text-[24px] leading-8 text-[#FFFFFF33] px-1 py-1 overflow-hidden"
+          className="w-full bg-[#1F1F1F66] text-[24px] leading-8 text-[#FFFFFF] placeholder-opacity-20 px-1 py-1 overflow-hidden"
         />
       </div>
 

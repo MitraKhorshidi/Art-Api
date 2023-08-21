@@ -11,7 +11,7 @@ const Single = async ({ params }: { params: { id: string }}) => {
   return (<>
     <NavBar />
 
-    <div className="flex flex-col gap-8 ">
+    <div className="flex flex-col gap-8 flex-1">
       <div className="flex flex-row items-center gap-2 text-btn-primary text-lg leading-6">
       <Link href='/' className="pl-3 text-base"><FaChevronLeft/></Link>
       <BackButton/>

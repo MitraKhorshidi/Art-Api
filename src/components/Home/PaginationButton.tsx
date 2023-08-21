@@ -4,24 +4,24 @@ import { generateLink } from "@/utils/links";
 
 const PaginationButton = ({
   searchParams,
-  content,
+  children,
   isActive,
 }: {
   searchParams?: FilterProps;
-  content: string | number 
+  children?: string | number | JSX.Element | JSX.Element[] ,
   isActive?: boolean;
 }) => {
   const classes = !isActive
-    ? "bg-bg-primary text-secondary text-center text-[18px] leading-6 bg-parimary rounded-full p-4 w-[56px] h-[56px] aspect-[56/56] gap-[10px] border border-1 border-[#333333] shadow-[0px_16px_16px_4px_rgba(0, 0, 0, 0.01)]"
-    : "bg-bg-primary text-secondary text-center text-[18px] leading-6 bg-parimary rounded-full p-4 w-[56px] h-[56px] aspect-[56/56] gap-[10px] border border-1 border-btn-primary shadow-[0px_16px_16px_4px_rgba(0, 0, 0, 0.01)]";
+    ? "flex items-center justify-center bg-bg-primary text-secondary text-center text-[18px] leading-6 bg-parimary rounded-full   w-[56px] h-[56px] aspect-[56/56] gap-[10px] border border-1 border-[#333333] shadow-[0px_16px_16px_4px_rgba(0, 0, 0, 0.01)]"
+    : "flex items-center justify-center bg-bg-primary text-secondary text-center text-[18px] leading-6 bg-parimary rounded-full  w-[56px] h-[56px] aspect-[56/56] gap-[10px] border border-1 border-btn-primary shadow-[0px_16px_16px_4px_rgba(0, 0, 0, 0.01)]";
 
   if (!searchParams) {
-    return <div className={classes}>{content}</div>;
+    return <div className={classes}>{children}</div>;
   }
 
   return (
     <Link href={generateLink(searchParams)} className={classes}>
-      {content}
+      {children}
     </Link>
   );
 };

@@ -1,6 +1,6 @@
 import { FilterProps } from "@/data/types";
 import PaginationButton from "./PaginationButton";
-import { FaChevronRight,FaChevronLeft } from "react-icons/fa";
+import Image from "next/image";
 
 const Pagination = ({
   lastPage,
@@ -13,38 +13,38 @@ const Pagination = ({
   const currentPage = Number(searchParams.page || 1);
   if (currentPage === 1) {
     return (
-      <div className="flex flex-row justify-end aspect-[1408/76] p-[10px] gap-4">
-        <PaginationButton  content={'<'} />
-        <PaginationButton  content={currentPage} isActive={true} />
-        <PaginationButton searchParams={{...searchParams,page:2}} content={2} />
-        <PaginationButton  content={"..."}  />
-        <PaginationButton searchParams={{...searchParams,page:lastPage}} content={lastPage} />
-        <PaginationButton searchParams={{...searchParams,page:currentPage+1}} content={">"}  />
+      <div className="flex flex-row justify-center sm:justify-end  p-[10px] gap-4">
+        <PaginationButton >{<Image src='/chevronLeft.svg' alt="chevron-left" width={15} height={15}/>}</PaginationButton>
+        <PaginationButton isActive={true} >{currentPage}</PaginationButton>
+        <PaginationButton searchParams={{...searchParams,page:2}} >2</PaginationButton>
+        <PaginationButton >...</PaginationButton>
+        <PaginationButton searchParams={{...searchParams,page:lastPage}} >{lastPage}</PaginationButton>
+        <PaginationButton searchParams={{...searchParams,page:currentPage+1}}>{<Image src="/chevronRight.svg" alt="chevron-right" width={15} height={15}/>}</PaginationButton>
       </div>
     );
   } 
 
   if (currentPage === lastPage) {
     return (
-      <div className="flex flex-row justify-end aspect-[1408/76] p-[10px] gap-4 ">
-        <PaginationButton searchParams={{...searchParams,page:currentPage-1}} content={"<"} />
-        <PaginationButton searchParams={{...searchParams,page:1}} content={1}  />
-        <PaginationButton content={"..."} />
-        <PaginationButton  content={currentPage}  />
-        <PaginationButton  content={">"}/>
+      <div className="flex flex-row justify-center sm:justify-end  p-[10px] gap-4 ">
+        <PaginationButton searchParams={{...searchParams,page:currentPage-1}}>{<Image src='/chevronLeft.svg' alt="chevron-left" width={15} height={15}/>}</PaginationButton>
+        <PaginationButton searchParams={{...searchParams,page:1}}>1</PaginationButton>
+        <PaginationButton >...</PaginationButton>
+        <PaginationButton >{currentPage}</PaginationButton>
+        <PaginationButton >{<Image src="/chevronRight.svg" alt="chevron-right" width={15} height={15}/>}</PaginationButton>
       </div>
     );
   }
 
   return(
-    <div className="flex flex-row justify-end aspect-[1408/76] p-[10px] gap-4 ">
-        <PaginationButton searchParams={{...searchParams,page:currentPage-1}} content={"<"}  />
-        <PaginationButton searchParams={{...searchParams,page:1}} content={1} />
-        <PaginationButton  content={"..."}  />
-        <PaginationButton content={currentPage} isActive={true} />
-        <PaginationButton  content={"..."}  />
-        <PaginationButton searchParams={{...searchParams,page:lastPage}} content={lastPage}  />
-        <PaginationButton searchParams={{...searchParams,page:currentPage+1}} content={">"}  />
+    <div className="flex flex-row justify-center sm:justify-end p-[10px] gap-4 ">
+        <PaginationButton searchParams={{...searchParams,page:currentPage-1}} >{<Image src='/chevronLeft.svg' alt="chevron-left" width={15} height={15}/>}</PaginationButton>
+        <PaginationButton searchParams={{...searchParams,page:1}}>1</PaginationButton>
+        <PaginationButton >...</PaginationButton>
+        <PaginationButton isActive={true} >{currentPage}</PaginationButton>
+        <PaginationButton >...</PaginationButton> 
+        <PaginationButton searchParams={{...searchParams,page:lastPage}} >{lastPage}</PaginationButton>
+        <PaginationButton searchParams={{...searchParams,page:currentPage+1}}>{<Image src="/chevronRight.svg" alt="chevron-right" width={15} height={15}/>}</PaginationButton>
       </div>
   );
 

@@ -1,6 +1,4 @@
 import "@/app/styles/globals.css";
-import Footer from "@/components/layout/Footer";
-import NavBar from "@/components/layout/NavBar";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 
@@ -23,9 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <NavBar />
+      <div className={`w-screen h-screen flex justify-center`}>
+        <div className="w-full h-full flex flex-col max-w-[1440px] gap-8 p-4">
         {children}
-        <Footer />
+        </div>
+      </div>
       </body>
     </html>
   );

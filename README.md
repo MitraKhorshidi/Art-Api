@@ -2,6 +2,9 @@
 
 ArtAPI is a museum that wants to launch an online catalogue
 of their collection.
+It's a server side rendering web application using Next.js , Typescript and Tailwind.CSS.
+
+You can visit deployed version in Vercel: https://art-api-pi.vercel.app/
 
 
 ## Getting Started

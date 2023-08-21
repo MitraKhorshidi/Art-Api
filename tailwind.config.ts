@@ -24,6 +24,9 @@ const config: Config = {
     extend: {
       width: {
         '1408': '1408px',
+      },
+      screens:{
+        'mini': '500px',
       }
     },
   },

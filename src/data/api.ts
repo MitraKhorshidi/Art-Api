@@ -6,6 +6,7 @@ export async function getArtcraftsList(searchParams: FilterProps): Promise<{
     objects: ArtObject[],
     pageCount: number,
     totlaCount: number,
+    countPerPage: number,
 }> {
     const pageNumber = searchParams.page || 1;
     const query = searchParams.query || '';
@@ -16,10 +17,15 @@ export async function getArtcraftsList(searchParams: FilterProps): Promise<{
     const response = await fetch(link);
     const result = await response.json();
     const artcraftslist = result.artObjects;
-    const count = result.count;
-    const pageCount = Math.floor(count / countPerPage);
+    const count = Number(result.count);
+    const pageCount = Math.ceil(count / countPerPage);
 
-    return { objects: artcraftslist, pageCount: pageCount, totlaCount: count };
+    return {
+        objects: artcraftslist,
+        pageCount: pageCount,
+        totlaCount: count,
+        countPerPage: countPerPage,
+    };
 }
 
 export async function getArtcraftsDetail(objectNumber: string): Promise<ArtObjectDetails> {

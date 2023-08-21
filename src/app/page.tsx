@@ -7,7 +7,7 @@ export default async function Home({ searchParams }: HomeProps) {
   const { objects: artCraftsList, pageCount: lastPage } =
     await getArtcraftsList(searchParams);
   return (
-    <main className="flex flex-col items-centr text-white">
+    <main className="flex flex-col items-centr justify-center gap-8 aspect-[1408/1264]">
       {artCraftsList && (
         <CollectionList list={artCraftsList} title={"All artworks"} />
       )}

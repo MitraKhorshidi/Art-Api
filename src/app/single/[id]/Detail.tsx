@@ -44,7 +44,7 @@ export const Detail = ({ details }: { details: ArtObjectDetails }) => {
           </div>
         )}
 
-        {dimensions && (
+        {dimensions.length > 0 && (
           <div className="gap-1 pt-2 pb-4 text-secondary border-b-[1px] border-b-secondary">
             <p className="text-base leading-6">Measurments</p>
             <h3 className="text-2xl text-primary leading-8 ">

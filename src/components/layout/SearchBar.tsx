@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { generateLink } from "@/utils/links";
 
@@ -8,12 +8,16 @@ const SearchBar = () => {
   const [searchInput, setSearchInput] = useState("");
   const router = useRouter();
 
-  function searchHandler() {
+  function searchHandler(e:FormEvent) {
+    e.preventDefault();
     const link = generateLink({ page: 1, query: searchInput });
     router.push(link);
   }
   return (
-    <div className="flex flex-row items-center gap-4 ">
+    <form
+      onSubmit={searchHandler}
+      className="flex flex-row items-center gap-4 "
+    >
       <div className="w-full aspect-[460/48] border border-1 border-[#FFFFFF26] rounded-[80px]  ">
         <input
           value={searchInput}
@@ -24,14 +28,14 @@ const SearchBar = () => {
       </div>
 
       <button
-        onClick={searchHandler}
+        type="submit"
         className="w-full aspect-[150/48] bg-btn-primary gap-[10px] rounded-[40px] p-4 shadow-[0px_16px_16px_4px_rgba(0, 0, 0, 0.01)"
       >
         <h4 className="w-full text-[18px] leading-6 text-center text-primary shadow-[0px_40px_40px_8px_rgba(0, 0, 0, 0.01)]">
           Search
         </h4>
       </button>
-    </div>
+    </form>
   );
 };
 

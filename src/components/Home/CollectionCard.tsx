@@ -7,15 +7,21 @@ const CollectionCard = ({
   principalOrFirstMaker,
   webImage,
 }: {
-  objectNumber: string,
-  title: string,
-  principalOrFirstMaker: string,
-  webImage : ArtImage,
+  objectNumber: string;
+  title: string;
+  principalOrFirstMaker: string;
+  webImage: ArtImage;
 }) => {
   return (
-    <Link href={`/single/${objectNumber}`} className="bg-cover flex flex-col aspect-[450/364] w-full p-5 bg-white rounded-md text-black" style={{backgroundImage:`url(${webImage?.url})`}}>
-      <p>{principalOrFirstMaker}</p>
-      <h3>{title}</h3>
+    <Link
+      href={`/single/${objectNumber}`}
+      className="relative bg-cover flex w-full aspect-[450/364] rounded-[8px] shadow-[0px_16px_16px_4px_rgba(0, 0, 0, 0.01)]"
+      style={{ backgroundImage: `linear-gradient(to bottom,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.72)),url(${webImage?.url})` }}
+    >
+      <p className="absolute top-0 right-0 bg-[#1D1D1D80] rounded-tr-lg rounded-bl-lg py-1 px-2 gap-[10px] text-[#0FEFFD] leading-4 text-sm">{principalOrFirstMaker}</p>
+      <div className="absolute flex top-[40%] left-[7%] w-full aspect-[346/132]">
+      <h3 className="self-end text-[32px] leading-[40px] w-2/3 text-secondary">{title}</h3>
+      </div>
     </Link>
   );
 };

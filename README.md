@@ -1,4 +1,5 @@
 ## Front-End Challenge
+
 ArtAPI is a museum that wants to launch an online catalogue
 of their collection.
 

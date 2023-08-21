@@ -13,7 +13,7 @@ You can visit deployed version in Vercel: https://art-api-pi.vercel.app/
 you can clone the project if you do not have the source code already
 
 ```bash
-git clone https://github.com/MitraKhorshidi/Art-Api.git art-api
+git clone https://github.com/MitraKhorshidi/art-api.git art-api
 cd art-api
 ```
 

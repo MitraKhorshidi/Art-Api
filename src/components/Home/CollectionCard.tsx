@@ -23,11 +23,9 @@ const CollectionCard = ({
       <p className="absolute top-0 right-0 bg-[#1D1D1D80] rounded-tr-lg rounded-bl-lg py-1 px-2 gap-[10px] text-[#0FEFFD] leading-4 text-sm">
         {principalOrFirstMaker}
       </p>
-      <div className="absolute bottom-[10%] left-[7%] aspect-[346/132] w-2/3 flex">
-        <h3 className="self-end text-[32px] leading-[40px] text-secondary">
+        <h3 className="absolute bottom-[10%] left-[7%] w-[75%]  text-[32px] leading-[40px] text-secondary">
           {title}
         </h3>
-      </div>
     </Link>
   );
 };
